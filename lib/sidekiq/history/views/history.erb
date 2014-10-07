@@ -20,7 +20,7 @@
     </thead>
     <% @messages.each do |msg| %>
       <tr>
-        <td><%= City.find(msg["payload"]["args"].first.is_a?(Array) ? msg["payload"]["args"][1] : msg["payload"]["args"].first).name %></td>
+        <td><%= City.find(msg["payload"]["args"][1] ? msg["payload"]["args"][1] : msg["payload"]["args"].first).name %></td>
         <td style="overflow: hidden; text-overflow: ellipsis;">
           <%= msg['worker'] %>
           <br />
